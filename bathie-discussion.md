@@ -83,4 +83,4 @@ Also, in phase I, I add at most 2 variables per *internal* constraint (slack var
 
 For example, a computation with 10000 variables and 10 constraints finishes very fast, whereas a computation with 10 variables and 1000 constraints (that is, 10 times less that we had variables) takes a lot of time to complete.
 
-This seems reasonable, as n constraints can make an exponential number of intersections, that is a exponential number of vertices to potentially visit.
+This seems reasonable, as n constraints can make an exponential number of intersections, that is an exponential number of vertices that me might visit before reaching the optimal point.
