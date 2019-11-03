@@ -1,7 +1,6 @@
 # OA - Homework 1 - Gabriel BATHIE
 
 ## TODO :
-- Remove sanity check / clean code
 - Test python 3.7 /Whatever is on the ENS machines
 - Limitations
 - Add an LP where max coeff cycles

@@ -25,8 +25,8 @@ Even though there are cases where it might lead to more pivots that Bland's rule
 ### Performance comparison
 I did an experiment to compare the performance of the four rules. 
 I measured performance by counting the average number of pivots 
-in the simplex before reaching the result (optimal point or certificate of unboundedness),
-on 30 random LPs with an increasing number of variables and constraints. The results are reported in the following table :
+in the simplex before reaching the result (optimal point or certificate of unboundedness), on 30 random LPs with an increasing number of variables and constraints. 
+The results are reported in the following table :
 
 For 10 constraints :
 
