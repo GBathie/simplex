@@ -1,0 +1,13 @@
+The input linear program is :
+
+Maximize  5x_0 +9/2x_1
+Such that 1x_0 +0x_1 <= 800
+          3/50x_0 +1/20x_1 <= 60
+          10x_0 +20x_1 <= 15000
+          x_0, x_1 are non-negative
+
+The linear program is FEASIBLE
+An optimal solution is x_0 = 4500/7, x_1 = 3000/7
+Optimal value : 36000/7
+Number of pivots : 3
+Pivot function used : Custom

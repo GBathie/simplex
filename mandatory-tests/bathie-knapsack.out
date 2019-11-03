@@ -1,0 +1,17 @@
+The input linear program is :
+
+Maximize  25x_0 +18x_1 +10x_2 +12x_3 +45x_4 +14x_5
+Such that 20x_0 +16x_1 +7x_2 +10x_3 +30x_4 +12x_5 <= 60
+          1x_0 +0x_1 +0x_2 +0x_3 +0x_4 +0x_5 <= 1
+          0x_0 +1x_1 +0x_2 +0x_3 +0x_4 +0x_5 <= 1
+          0x_0 +0x_1 +1x_2 +0x_3 +0x_4 +0x_5 <= 1
+          0x_0 +0x_1 +0x_2 +1x_3 +0x_4 +0x_5 <= 1
+          0x_0 +0x_1 +0x_2 +0x_3 +1x_4 +0x_5 <= 1
+          0x_0 +0x_1 +0x_2 +0x_3 +0x_4 +1x_5 <= 1
+          x_0, x_1, x_2, x_3, x_4, x_5 are non-negative
+
+The linear program is FEASIBLE
+An optimal solution is x_0 = 1, x_1 = 0, x_2 = 1, x_3 = 3/10, x_4 = 1, x_5 = 0
+Optimal value : 418/5
+Number of pivots : 12
+Pivot function used : Custom
