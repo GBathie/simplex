@@ -20,7 +20,7 @@ Even though there are cases where it might lead to more pivots that Bland's rule
 
 **Bonus** : I also implemented the random pivot rule, (mainly) for the sake of testing.
 
-## II) Comparison of behaviors of pivot rules ?
+## II) Comparison of behaviors of pivot rules 
 
 ### Performance comparison
 I did an experiment to compare the performance of the four rules. 
@@ -30,22 +30,23 @@ on 30 random LPs with an increasing number of variables and constraints. The res
 
 For 10 constraints :
 
-|N var | Bland's | Random | Custom | Max Coeff |
-|:-----|:-------:|:------:|:------:|:---------:|
-|  10  |    10   |   12   |   10   |     8     |
-|  20  |    23   |   25   |   16   |     15    |
-|  30  |    23   |   23   |   16   |     14    |
-|  40  |    24   |   23   |   16   |     14    |
-|  50  |    25   |   22   |   15   |     14    |
+|    N,M    | Bland's | Random | Custom | Max Coeff |
+|:----------|:-------:|:------:|:------:|:---------:|
+|  (10,10)  |    10   |   12   |   10   |     8     |
+|  (20,10)  |    23   |   25   |   16   |     15    |
+|  (30,10)  |    23   |   23   |   16   |     14    |
+|  (40,10)  |    24   |   23   |   16   |     14    |
+|  (50,10)  |    25   |   22   |   15   |     14    |
 
 For 20 constraints :
-|N var | Bland's | Random | Custom | Max Coeff |
-|:-----|:-------:|:------:|:------:|:---------:|
-|  10  |   13    |   15   |   14   |    11     |
-|  20  |   40    |   41   |   35   |    25     |
-|  30  |   66    |   60   |   53   |    34     |
-|  40  |   76    |   68   |   55   |    34     |
-|  50  |   75    |   65   |   52   |    32     |
+
+|    N,M    | Bland's | Random | Custom | Max Coeff |
+|:----------|:-------:|:------:|:------:|:---------:|
+|  (10,20)  |   13    |   15   |   14   |    11     |
+|  (20,20)  |   40    |   41   |   35   |    25     |
+|  (30,20)  |   66    |   60   |   53   |    34     |
+|  (40,20)  |   76    |   68   |   55   |    34     |
+|  (50,20)  |   75    |   65   |   52   |    32     |
 
 ### Other differences
 
@@ -59,7 +60,8 @@ One important aspect of pivoting rules is their interaction with cycles : can th
 
 The input and output files for question 1) (exercises from TD sheet 1) are in the `mandatory-exercises/` folder.
 
-The random LPs are in the `random/` folder, and are named the follwing way : `bathie-random-N-M.dat`, where N is the the number of variables, and M the number of constraints. All `.dat` files have their corresponding `.out` file, containing the output of my program when ran on the file, with the `-c` rule. The LPs are generated with the `random_generator.py` program, with rational coefficients between -10 and 10, and with denominator at most 100000.
+The random LPs are in the `random/` folder, and are named the follwing way : `bathie-random-N-M.dat`, where N is the the number of variables, and M the number of constraints. All `.dat` files have their corresponding `.out` file, containing the output of my program when ran on the file, with the `-c` rule.   
+The LPs are generated with the `random_generator.py` program, with rational coefficients between -10 and 10, and with denominator at most 100000.
 
 ## IV) Interesting instances :
 The interesting instances are located in the `interesting/` folder.

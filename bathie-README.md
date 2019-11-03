@@ -3,7 +3,6 @@
 ## TODO :
 - Remove sanity check / clean code
 - Test python 3.7 /Whatever is on the ENS machines
-- Show the efficiency of my rule vs Blands's
 - Limitations
 - Add an LP where max coeff cycles
 

@@ -1,3 +1,7 @@
+"""
+Parse LP files or command line arguments
+"""
+
 import sys
 import numpy as np
 from fractions import Fraction

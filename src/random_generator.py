@@ -1,16 +1,31 @@
+"""
+Thi
+"""
 import numpy as np
 import random
 import sys
 from fractions import Fraction
 
+"""
+Generate a random rational :
+Pick at random a denominator between 1 and d,
+then pick a rational uniformly in the range b0, b1 with that denominator
+"""
 def random_rational(b0, b1, d):
 	denom = random.randint(1, d)
 	num = random.randint(b0*denom, b1*denom)
 	return Fraction(num, denom)
 
+"""
+Generate n rationals at a time
+"""
 def random_n_rational(b0, b1, d, n):
 	return [random_rational(b0, b1, d) for i in range(n)]
 
+
+"""
+Generate a LP with n variables and m constraints, write it in filename
+"""
 def generate_to_file(n, m, filename, b0=0, b1=10, d=1):
 	f = open(filename, "w+")
 	f.write(n + "\n")

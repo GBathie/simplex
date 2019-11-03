@@ -25,27 +25,6 @@ def canonical_form(lp):
 def prepare_phase_i(lp):
 	obj, A, b = lp
 	m, n = A.shape
-	"""
-	Ap = np.zeros((m, n+m), dtype=np.int) + Fraction()
-	Ap[0:m, 0:n] = A
-	bp = np.array(b)
-	for i in range(m):
-		if bp[i] < 0:
-			Ap[i, n + i] = -1
-			Ap[i] *= -1
-			bp[i] *= -1
-		else:
-			Ap[i, n + i] = 1
-
-	objp = np.zeros(n+m, dtype=np.int) + Fraction()
-	objv = Fraction(0)
-	for i in range(m):
-		objp[0:n] += Ap[i][0:n]
-		objv -= bp[i]
-
-	return (objv, (objp, Ap, bp), list(range(n, m+n)))
-
-	"""
 	additonal_variables = []
 	basis = [0]*m
 	for i in range(m):
@@ -175,15 +154,9 @@ def simplex_solver(lp, objv, basis, rule, verbose, phaseI, forbidden=[]):
 	return (objv, basis, (obj, A, b), "Done", pivot_count)
 
 
-def sanity_check(opt, n, lp):
-	#######################
-	xsol = np.array(list(map(lambda x: x[1], opt[:n])))
-	check = lp[1].dot(xsol)	
-	print("Sanity check: ",  check <= lp[2])
-	print(" ".join(list(map(str, check))))
-	print("Sanity check2: ",  xsol >= np.zeros_like(xsol))
-	#######################
-
+"""
+Main function for the simplex : bookkeeping, two phases, verbose.
+"""
 def simplex(lp, rule, verbose, rule_name):
 	print("The input linear program is :\n")
 	print_initial(lp)
@@ -230,7 +203,6 @@ def simplex(lp, rule, verbose, rule_name):
 		print("The linear program is FEASIBLE")
 		print("An optimal solution is " + ", ".join(list(map(lambda x: "x_" + str(x[0]) + " = " + str(x[1]),opt))))
 		print("Optimal value : " + str(objv))
-		if verbose: sanity_check(opt, n, lp)
 	print("Number of pivots :", c1 + c2)
 	print("Pivot function used :", rule_name)
 	return objv
