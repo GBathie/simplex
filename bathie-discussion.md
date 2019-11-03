@@ -14,17 +14,46 @@ My custom rule does this, but instead of searching for any stricly positive incr
 it will go for the biggest strictly positive increase that is possible at each step. 
 If no positive increase is possible, then we apply Bland's rule.
 
-In order to measure the efficiency of this rule compared to Bland's, I ran experiments, counting the number of pivots 
-in the simplex before reaching the result (optimal point or certificate of unboundedness) with this rule and Blands's rule,
-on 100 random LPs of varying sizes. The results are reported in the following table :
+In order to measure the efficiency of this rule compared to Bland's and the others, I ran experiments. See section **II** for the results.
 
-# INSERT TABLE (and graph ?)
-
-Even though there are cases where it might lead to more pivots that Bland's rule, we can see that in practice and in average, it is much more efficient that Bland's rule.
+Even though there are cases where it might lead to more pivots that Bland's rule, we can see that in practice and in average, it is more efficient that Bland's rule. See also section **IV** for a striking example.
 
 **Bonus** : I also implemented the random pivot rule, (mainly) for the sake of testing.
 
 ## II) Comparison of behaviors of pivot rules ?
+
+### Performance comparison
+I did an experiment to compare the performance of the four rules. 
+I measured performance by counting the average number of pivots 
+in the simplex before reaching the result (optimal point or certificate of unboundedness),
+on 30 random LPs with an increasing number of variables and constraints. The results are reported in the following table :
+
+For 10 constraints :
+
+|N var | Bland's | Random | Custom | Max Coeff |
+|:-----|:-------:|:------:|:------:|:---------:|
+|  10  |    10   |   12   |   10   |     8     |
+|  20  |    23   |   25   |   16   |     15    |
+|  30  |    23   |   23   |   16   |     14    |
+|  40  |    24   |   23   |   16   |     14    |
+|  50  |    25   |   22   |   15   |     14    |
+
+For 20 constraints :
+|N var | Bland's | Random | Custom | Max Coeff |
+|:-----|:-------:|:------:|:------:|:---------:|
+|  10  |   13    |   15   |   14   |    11     |
+|  20  |   40    |   41   |   35   |    25     |
+|  30  |   66    |   60   |   53   |    34     |
+|  40  |   76    |   68   |   55   |    34     |
+|  50  |   75    |   65   |   52   |    32     |
+
+### Other differences
+
+One important aspect of pivoting rules is their interaction with cycles : can they get stuck in a cycle ?
+
+- The maximum coefficient rule can be stuck in a cycle. See section **IV** for an example.
+- Bland's rule and the custom rule can't, by design
+- The random rule will almost surely get out of any cycle, you just have to wait, potentially a very long time. 
 
 ## III) Exercises from TD1 and random instances
 
