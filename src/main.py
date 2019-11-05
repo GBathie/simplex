@@ -1,5 +1,7 @@
 #!/usr/bin/env python3
-
+"""
+Entry point of the program
+"""
 import numpy as np
 import random
 from fractions import Fraction

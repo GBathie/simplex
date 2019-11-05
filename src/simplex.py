@@ -1,3 +1,6 @@
+"""
+Contains the core functions of the simplex algorithm
+"""
 import numpy as np
 from fractions import Fraction
 from display import *

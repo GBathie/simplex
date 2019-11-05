@@ -1,5 +1,5 @@
 """
-Thi
+Contains the functions for the random generation of LPs
 """
 import numpy as np
 import random

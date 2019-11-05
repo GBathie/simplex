@@ -60,7 +60,7 @@ One important aspect of pivoting rules is their interaction with cycles : can th
 
 The input and output files for question 1) (exercises from TD sheet 1) are in the `mandatory-exercises/` folder.
 
-The random LPs are in the `random/` folder, and are named the follwing way : `bathie-random-N-M.dat`, where N is the the number of variables, and M the number of constraints. All `.dat` files have their corresponding `.out` file, containing the output of my program when ran on the file, with the `-c` rule.   
+The random LPs are in the `random/` folder, and are named the follwing way : `bathie-random-N-M.dat` or `bathie-random-N-M-status.dat`, where N is the the number of variables, M is the number of constraints and `status` is one of `{unbounded, unfeasible, finite}`. All `.dat` files have their corresponding `.out` file, containing the output of my program when ran on the file, with the `-c` rule.   
 The LPs are generated with the `random_generator.py` program, with rational coefficients between -10 and 10, and with denominator at most 100000.
 
 ## IV) Interesting instances :
@@ -73,7 +73,11 @@ It makes Bland's rule make a very high number of steps. I included the output fi
 I also tried to run the program on the case `d = 20` : the custom rule takes 42 pivots to reach the optimal solution (less that 15 seconds), and Bland's rule does not terminate within 15 minutes.
 
 ### Cycling LP
-- LP that cycles for Max
+
+The next interesting LP that I included is the LP from TD3, Exercise 6 : it is an LP that makes the Maximum Coefficient Rule cycle, and therefore the computation does not end.
+It is contained in the file `bathie-cycling.dat`
+
+It also allows to test that the Custom rule does indeed not cycle : I included the output of the simplex with the custom rule in the file `bathie-cycling-custom.out`. It does finish in 7 steps. We can notice that it is actually the same as Bland's rule. This could be expected because in the degenerate case, the custom rule is designed to exhibit Bland's rule's behavior.
 
 ## V) Sensitivity of my program
 

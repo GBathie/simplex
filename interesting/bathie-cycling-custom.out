@@ -1,0 +1,13 @@
+The input linear program is :
+
+Maximize  10x_0 -57x_1 -9x_2 -24x_3
+Such that 1/2x_0 -11/2x_1 -5/2x_2 +9x_3 <= 0
+          1/2x_0 -3/2x_1 -1/2x_2 +1x_3 <= 0
+          1x_0 +1x_1 +1x_2 +1x_3 <= 1
+          x_0, x_1, x_2, x_3 are non-negative
+
+The linear program is FEASIBLE
+An optimal solution is x_0 = 1/2, x_1 = 0, x_2 = 1/2, x_3 = 0
+Optimal value : 1/2
+Number of pivots : 7
+Pivot function used : Custom

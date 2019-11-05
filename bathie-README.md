@@ -1,22 +1,23 @@
-# OA - Homework 1 - Gabriel BATHIE
-
-## TODO :
-- Test python 3.7 /Whatever is on the ENS machines
-- Limitations
-- Add an LP where max coeff cycles
+# OA - Homework 1
+Gabriel BATHIE
 
 ## I) Detail of the project 
-
 ### A) Source files
+
+In the `src/` folder :
 
 - `main.py`: Contains the main function, entry point of the program
 - `parsing.py` : Contains the functions that parse command line arguments or files containing the LP
 - `simplex.py` : Contains the functions of the simplex algorithm, used to solve the LP
 - `rules.py` : Contains the implementation of the different rules
 - `display.py` : Contains the functions to print nicely a LP/dictionary
-- `random_generator.py` : Generator for random LPs
+- `random_generator.py` : Generator of random LPs
 
-### B) Data Structure for LPs
+### B) Other files
+
+Example files are distributed between the `mandatory-tests/`, `interesting/` and `random/` folder. Their content is discussed in the `bathie-discussion` file.
+
+### C) Data Structure for LPs
 
 The LPs are not stored in a class, they are stored in `numpy` arrays of `Fraction`s.  
 One array for `A`, the constraint matrix, one array for `b`, one for `c` 
@@ -28,14 +29,13 @@ These are equivalent to the usual "tableau", but split into four parts.
 Therefore, the output will begin with `x_0 = ...` and not with `x_1 = ...`.
 
 ## II) Features
-
 ### A) Rules available :
 
 - **Maximum coefficient rule**
 - **Bland's rule**
 - **Random positive pivot rule** :  
 	This rule first checks whether the objective function is unbounded.  
-	If it is not, it selects uniformly at random a variable with a positive coefficient in the objective function.  
+	If it is not, it selects uniformly at random a variable with a strictly positive coefficient in the objective function.  
 	It breaks ties for the leaving variable randomly.
 - **Custom rule : Accelerated Bland's rule**  
 	This rule makes the greatest increase possible in the objective function.  
@@ -72,7 +72,9 @@ Generate a random LP as follows : `python3 random_generator.py N M filename [b0 
 
 The order of the parameters is very important. 
 
+Example : `python3 random_generator.py 30 10 test.dat -10 10 1000`
+
 ## III) Dependencies 
 
-The program was tested with `python 3.6.8` and `python 3.7.???????????`.  
-The program uses the following Python3 modules : `numpy` (tested with `numpy 1.17.2`), `fractions`, `random` and `sys`
+The program was tested with `python 3.6.8`.  
+The program uses the following Python3 modules : `numpy` (tested with `numpy 1.17.2`), `fractions`, `random` and `sys`.
