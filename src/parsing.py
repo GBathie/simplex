@@ -5,6 +5,7 @@ Parse LP files or command line arguments
 import sys
 import numpy as np
 from fractions import Fraction
+from argparse import ArgumentParser, FileType
 
 
 def print_usage():
@@ -12,35 +13,54 @@ def print_usage():
 
 
 def parse_args():
-    verbose = "-v" in sys.argv
-    dual = "-d" in sys.argv
+    parser = ArgumentParser()
+
+    parser.add_argument("input_file", type=str, help="Path of the input file to read")
+    parser.add_argument(
+        "-v", "--verbose", action="store_true", help="Print debug information while solving"
+    )
+    parser.add_argument(
+        "-d", "--dual", action="store_true", help="Solve the dual problem instead of the primal"
+    )
+
+    group = parser.add_mutually_exclusive_group()
+    group.add_argument(
+        "-m", "--max_coeff", action="store_true", help="Use the Maximum Coefficient pivot rule"
+    )
+    group.add_argument("-b", "--bland", action="store_true", help="Use Bland's pivot rule")
+    group.add_argument("-c", "--custom", action="store_true", help="Use a custom pivot rule")
+    group.add_argument(
+        "-r",
+        "--random",
+        action="store_true",
+        help="Use the random pivot rule (default)",
+        default=True,
+    )
+
+    parser.add_argument(
+        "-o",
+        "--output_file",
+        type=str,
+        help="Path of the file to write the solution to",
+        default=None,
+    )
+
+    args = parser.parse_args()
+    dual = args.dual
+    verbose = args.verbose
+    ifile_name = args.input_file
 
     rule_name = None
-    if "-m" in sys.argv:
+    if args.max_coeff:
         rule_name = "Maximum coefficient"
-    if "-b" in sys.argv:
+    elif args.bland:
         rule_name = "Bland's"
-    if "-c" in sys.argv:
+    elif args.custom:
         rule_name = "Custom"
-    if ("-r" in sys.argv) or (not rule_name):
+    elif args.random:
         rule_name = "Random"
 
-    if len(sys.argv) > 1:
-        ifile_name = sys.argv[1]
-    else:
-        print("Not enough arguments.")
-        print_usage()
-        return None
-
-    ofile_name = None
-    if "-o" in sys.argv:
-        i = sys.argv.index("-o")
-        if len(sys.argv) > i + 1:
-            ofile_name = sys.argv[i + 1]
-        else:
-            print("Missing output file name.")
-            print_usage()
-            return None
+    ofile_name = args.output_file
 
     return (verbose, ifile_name, ofile_name, rule_name, dual)
 
