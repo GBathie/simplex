@@ -1,5 +1,5 @@
-# OA - Homework 1
-Gabriel BATHIE
+# OA - Simplex algorithm
+by Gabriel Bathie
 
 ## I) Detail of the project 
 ### A) Source files
@@ -76,5 +76,5 @@ Example : `python3 random_generator.py 30 10 test.dat -10 10 1000`
 
 ## III) Dependencies 
 
-The program was tested with `python 3.6.8`.  
-The program uses the following Python3 modules : `numpy` (tested with `numpy 1.17.2`), `fractions`, `random` and `sys`.
+The program was tested with `python 3.6.8` and `python 3.13.2`.  
+The program uses the following Python3 modules : `numpy` (tested with `numpy 1.17.2` and `2.2.3`), `fractions`, `random` and `sys`.
