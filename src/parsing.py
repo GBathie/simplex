@@ -2,10 +2,9 @@
 Parse LP files or command line arguments
 """
 
-import sys
 import numpy as np
 from fractions import Fraction
-from argparse import ArgumentParser, FileType
+from argparse import ArgumentParser
 
 
 def print_usage():
